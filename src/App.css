@@ -1,38 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Poppins&display=swap");
+
 .App {
-  text-align: center;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: rgb(11, 14, 16);
+  width: 100%;
+  height: 100vh;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  height: 100%;
+  background-color: #38404b;
+  border-radius: 20px;
+  color: #94adcf;
+}
+.nav {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 20px auto;
 }
 
-.App-link {
-  color: #61dafb;
+.form {
+  position: fixed;
+  bottom: 1.5rem;
+
+  align-items: center;
+  margin: auto;
+  align-self: center;
+  display: none;
+}
+.form-show {
+  display: flex;
+}
+.input {
+  background: #38404b;
+  box-shadow: 1px 1px 2px rgba(66, 75, 88, 0.3),
+    -1px -1px 2px rgba(46, 53, 62, 0.5),
+    inset -3px 3px 6px rgba(46, 53, 62, 0.2),
+    inset 3px -3px 6px rgba(46, 53, 62, 0.2),
+    inset -3px -3px 6px rgba(66, 75, 88, 0.9),
+    inset 3px 3px 8px rgba(46, 53, 62, 0.9);
+  border-radius: 16px;
+  color: rgba(148, 173, 207, 0.7);
+  font-size: 1.2rem;
+  padding: 5px;
+  font-family: "Inter", sans-serif;
+}
+.arrow-icon {
+  font-size: 1.5rem;
+  position: relative;
+  left: -30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.mobile-title {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+.burger-icon {
+  font-size: 2.2rem;
+  position: relative;
+  right: -20px;
+}
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 20px auto;
+  gap: 1em;
+}
+.task {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-family: "Inter", sans-serif;
+  box-shadow: -5px 5px 10px rgba(48, 54, 64, 0.2),
+    5px -5px 10px rgba(48, 54, 64, 0.2), -5px -5px 10px rgba(64, 74, 86, 0.9),
+    5px 5px 13px rgba(48, 54, 64, 0.9), inset 1px 1px 2px rgba(64, 74, 86, 0.3),
+    inset -1px -1px 2px rgba(48, 54, 64, 0.5);
+  border-radius: 16px;
+  width: 85%;
+  padding: 7px 2px;
+  padding-left: 15px;
+}
+.noTask {
+  font-size: 1.2rem;
+  font-family: "Inter", sans-serif;
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+.task > h2 {
+  cursor: pointer;
+}
+
+.complete-title {
+  padding-top: 2rem;
+  width: 80%;
+  margin: 20px auto;
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.completed-tasks-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 20px auto;
+  gap: 1em;
+}
+.completed-task {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-family: "Inter", sans-serif;
+  box-shadow: 1px 1px 2px rgba(64, 74, 86, 0.3),
+    -1px -1px 2px rgba(48, 54, 64, 0.5),
+    inset -5px 5px 10px rgba(48, 54, 64, 0.2),
+    inset 5px -5px 10px rgba(48, 54, 64, 0.2),
+    inset -5px -5px 10px rgba(64, 74, 86, 0.9),
+    inset 5px 5px 13px rgba(48, 54, 64, 0.9);
+  border-radius: 16px;
+  padding: 7px 2px;
+  margin-top: 10px;
+  padding-left: 15px;
+  width: 85%;
+}
+.completed-task > h2 {
+  text-decoration: line-through;
+}
+
+.icon {
+  font-size: 0.7rem;
+}
+
+.add {
+  background: #38404b;
+  box-shadow: -1px 1px 2px rgba(22, 26, 30, 0.2),
+    1px -1px 2px rgba(22, 26, 30, 0.2), -1px -1px 2px rgba(90, 102, 120, 0.9),
+    1px 1px 3px rgba(22, 26, 30, 0.9), inset 1px 1px 2px rgba(90, 102, 120, 0.3),
+    inset -1px -1px 2px rgba(22, 26, 30, 0.5);
+  border-radius: 50px;
+  padding: 10px;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 2.1rem;
+}
+
+@media only screen and (max-width: 382px) {
+  .input {
+    width: 50%;
   }
 }
