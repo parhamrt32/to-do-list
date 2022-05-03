@@ -36,15 +36,8 @@ function App() {
   };
   const handleComplete = (e) => {
     const tempTask = e.target.textContent;
-
-    completed.map((item) => {
-      if (item === tempTask) {
-        setCompleted([...completed]);
-      } else {
-        setCompleted([...completed, tempTask]);
-      }
-    });
-
+    console.log(tempTask);
+    setCompleted([...completed, tempTask]);
     setTasks(tasks.filter((item) => item.trim() !== tempTask.trim()));
   };
 
