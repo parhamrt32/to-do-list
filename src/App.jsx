@@ -10,18 +10,20 @@ function App() {
   const form1 = useRef(null);
   const [isAdd, setIsAdd] = useState(false);
   const [taskName, setTaskName] = useState("");
-  const [completed, setCompleted] = useState(["Reading"]);
-  const [tasks, setTasks] = useState([]);
+  const [completed, setCompleted] = useState(
+    JSON.parse(localStorage.getItem("completed")) || []
+  );
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
 
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("tasks"));
-    if (data) {
-      console.log(data);
-    }
-  }, []);
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem("completed", JSON.stringify(completed));
+  }, [completed]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,10 +31,12 @@ function App() {
       setTasks([...tasks, taskName]);
       setTaskName("");
     }
-    form1.current.classList.remove("form-show");
+    //form1.current.classList.remove("form-show");
+    setIsAdd(false);
   };
   const handleComplete = (e) => {
     const tempTask = e.target.textContent;
+
     completed.map((item) => {
       if (item === tempTask) {
         setCompleted([...completed]);
@@ -40,6 +44,7 @@ function App() {
         setCompleted([...completed, tempTask]);
       }
     });
+
     setTasks(tasks.filter((item) => item.trim() !== tempTask.trim()));
   };
 
